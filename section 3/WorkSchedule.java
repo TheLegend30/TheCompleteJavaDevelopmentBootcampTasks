@@ -1,0 +1,23 @@
+public class WorkSchedule {
+    public static void main(String[] args) {
+
+        // See Learn the Part for the complete instructions (link in resources folder of
+        // Udemy video).
+
+        int day = 6; // 3rd day of the week...
+        boolean holiday = false;
+
+        if (holiday) {
+            System.out.println("woohoo, no work!");
+        } else if (day > 5) {
+            System.out.println("it's the weekend, no work");
+        } else {
+            System.out.println("wake up at 7:00 :<");
+        }
+
+        // if it's a holiday, print: "woohoo, no work!");
+        // if it's the weekend, print: "it's the weekend, no work!"
+        // otherwise, print: "Wake up at 7:00 :( ";
+    }
+
+}
