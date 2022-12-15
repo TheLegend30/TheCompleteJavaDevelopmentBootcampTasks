@@ -12,32 +12,21 @@ public class RockPaperScissors {
         String answer = scan.nextLine();
 
         if (answer.equals("yes")) {
-            System.out.println("Great!");
+            System.out.println("Dobre!");
             System.out.println("rock - paper - scissors, shoot!");
-        } else {
-            System.out.println("Darn, some other time...!");
-        }
 
-        /*
-         * Task 2: Set up the game
-         *
-         *
-         * • if the answer is yes:
-         * – print: Great!
-         * – print: rock - paper - scissors, shoot!
-         * – pick up user's choice.
-         * – get the computer choice (can only be done after task 3).
-         * – get the result (can only be done after task 4)
-         * – print everything (can only be done after task 5).
-         *
-         * • else:
-         * – print: Darn, some other time...!
-         */
+            String yourChoice = scan.nextLine();
+            String computerChoice = computerChoice();
+
+            String result = result(yourChoice, computerChoice);
+
+            printResult(yourChoice, computerChoice, result);
+        } else {
+            System.out.println("Crap, some other time...!");
+        }
 
         scan.close();
     }
-
-    // Task 3 – Write a function where the computer picks a random choice.
 
     /**
      * Function name: computerChoice - picks randomly between rock paper and
@@ -52,7 +41,19 @@ public class RockPaperScissors {
      *         if 2: returns the choice 'scissors'
      */
 
-    // Task 4 – Write a function that compares the choices and returns the result.
+    public static String computerChoice() {
+        int number = (int) (Math.random() * 3);
+        switch (number) {
+            case 1:
+                return "rock";
+            case 2:
+                return "paper";
+            case 3:
+                return "scissors";
+            default:
+                return "Error";
+        }
+    }
 
     /**
      * Function name: result - It returns the result of the game.
@@ -85,12 +86,25 @@ public class RockPaperScissors {
 
     public static String result(String yourChoice, String computerChoice) {
         String result = "";
+        if ((yourChoice.equals("rock") && computerChoice.equals("scissors"))
+                || (yourChoice.equals("paper") && computerChoice.equals("rock"))
+                || (yourChoice.equals("scissors") && computerChoice.equals("paper"))) {
+            result = "You win!";
+        } else if ((yourChoice.equals("scissors") && computerChoice.equals("rock"))
+                || (yourChoice.equals("rock") && computerChoice.equals("paper"))
+                || (yourChoice.equals("paper") && computerChoice.equals("scissors"))) {
+            result = "You lose.";
+        } else if ((yourChoice.equals("scissors") && computerChoice.equals("scissors"))
+                || (yourChoice.equals("rock") && computerChoice.equals("rock"))
+                || (yourChoice.equals("paper") && computerChoice.equals("paper"))) {
+            result = "Tie!";
+        } else {
+            System.out.println("INVALID CHOICE");
+            System.exit(0);
+        }
 
         return result;
     }
-
-    // Task 5 – Write a function that prints your choice, the computer's, and the
-    // result.
 
     /**
      * Name: printResult - It prints everything (your choice, computer choice,
@@ -107,5 +121,11 @@ public class RockPaperScissors {
      *                       – prints: The computer chose: <computer choice>
      *                       – prints: <result>
      */
+
+    public static void printResult(String yourChoice, String computerChoice, String result) {
+        System.out.println("You chose: " + yourChoice);
+        System.out.println("The computer chose: " + computerChoice);
+        System.out.println(result);
+    }
 
 }

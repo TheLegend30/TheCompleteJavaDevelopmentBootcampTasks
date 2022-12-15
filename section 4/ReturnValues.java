@@ -1,13 +1,13 @@
 public class ReturnValues {
     public static void main(String[] args) {
-        double area1 = calculateArea(1.2, 2);
-        double area2 = calculateArea(1.5, 2);
-        double area3 = calculateArea(2, 5);
+        // double area1 = calculateArea(1.2, 2);
+        // double area2 = calculateArea(1.5, 2);
+        // double area3 = calculateArea(2, 5);
 
-        String englishExplanation = explainArea("English");
-        String frenchExplanation = explainArea("French");
-        String spanishExplanation = explainArea("Spanish");
-        String italianExplanation = explainArea("Italian");
+        // String englishExplanation = explainArea("English");
+        // String frenchExplanation = explainArea("French");
+        // String spanishExplanation = explainArea("Spanish");
+        // String italianExplanation = explainArea("Italian");
 
         printArea(1, 2, 2);
     }
